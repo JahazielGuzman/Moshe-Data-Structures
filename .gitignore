@@ -1,0 +1,4 @@
+__pycache__/
+data_structures/__pycache__/
+*.pyc
+data_structures/*.pyc
