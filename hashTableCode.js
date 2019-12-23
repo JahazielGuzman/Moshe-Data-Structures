@@ -24,4 +24,23 @@ function firstNotRepeating(s) {
 	return "";
 }
 
+function findFirstRepeated(s) {
+
+	const set = {};
+
+	for (const c in s) {
+		const char = s.charAt(c);
+
+		if (set[char] === undefined) {
+			set[char] = 0;
+		}
+		else {
+			return char;
+		}
+	}
+
+	return "";
+}
+
 console.log(firstNotRepeating("A Green Apple"));
+console.log(findFirstRepeated("A Green Apple"));
