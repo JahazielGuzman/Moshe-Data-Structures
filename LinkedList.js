@@ -101,6 +101,22 @@ module.exports = class LinkedList {
 		this.size --;
 	}
 
+	find(item, prop=null) {
+
+		let currNode = this.first;
+
+		while (currNode !== null && currNode.item.hasOwnProperty(prop) && currNode.item[prop] != item) {
+			
+			currNode = currNode.next;
+		}
+
+		if (currNode !== null)
+			return currNode.item
+		else
+			return null
+	}
+
+
 	contains(item) {
 
 		return this.indexOf(item) != -1
@@ -126,7 +142,7 @@ module.exports = class LinkedList {
 		return this.first == null;
 	}
 
-	getPrevious(node) {
+	getPrevious(item) {
 
 		let currNode = this.first;
 

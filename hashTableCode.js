@@ -1,4 +1,5 @@
 const ArrayQueue = require('./data_structures/ArrayQueue');
+const HashTable = require('./data_structures/HashTable')
 
 function firstNotRepeating(s) {
 
@@ -42,5 +43,23 @@ function findFirstRepeated(s) {
 	return "";
 }
 
-console.log(firstNotRepeating("A Green Apple"));
-console.log(findFirstRepeated("A Green Apple"));
+// console.log(firstNotRepeating("A Green Apple"));
+// console.log(findFirstRepeated("A Green Apple"));
+
+
+const ht = new HashTable();
+
+ht.put(1, "hummz");
+ht.put(2, "skin84");
+ht.put(3, "lip98");
+ht.put(4, "m,.;kl");
+ht.put(5, "eipir");
+ht.put(6, "pweozl");
+ht.put(7, "dlslz;a");
+ht.put(8, "34fea");
+ht.put(9, "dssdfdsf");
+ht.put(10, "hummus");
+ht.put("jeeda", "cheetos");
+ht.put({"joe": "bin"}, "crazy");
+ht.put("jeeda", "frosted flakes");
+console.log(ht.get("jeeda"));
