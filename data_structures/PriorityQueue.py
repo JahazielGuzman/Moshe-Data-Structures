@@ -28,7 +28,7 @@ class PriorityQueue:
 		else:
 			print("Sorry it's full")
 
-	def __str__:
+	def __str__():
 		i = 0
 		while i < count:
 			print("i - {self.queue[i]}")
