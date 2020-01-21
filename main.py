@@ -31,15 +31,27 @@ G.add_node("A")
 G.add_node("B")
 G.add_node("C")
 G.add_node("D")
+G.add_node("E")
+
+# print("Graph G initially:\n", G)
+# G.remove_node("C")
+# print("After removing node C:\n", G)
+# G.remove_edge("A", "B")
+# G.remove_edge("A", "D")
+# print("After removing edges A->B and A->D:\n", G)
+
+# test traversal algos
 G.add_edge("A", "B")
-G.add_edge("A", "C")
-G.add_edge("A", "D")
-G.add_edge("B", "A")
-G.add_edge("B", "C")
+G.add_edge("A", "E")
+G.add_edge("B", "E")
+G.add_edge("C", "A")
 G.add_edge("C", "B")
-print("Graph G initially:\n", G)
-G.remove_node("C")
-print("After removing node C:\n", G)
-G.remove_edge("A", "B")
-G.remove_edge("A", "D")
-print("After removing edges A->B and A->D:\n", G)
+G.add_edge("C", "D")
+G.add_edge("D", "E")
+
+print("Graph G ready for traversa\n", G)
+
+G.depth_first_traversal("C")
+
+
+

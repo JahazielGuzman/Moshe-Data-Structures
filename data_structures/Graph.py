@@ -1,5 +1,6 @@
 from .LinkedList import LinkedList
 from collections import deque
+from collections import OrderedDict
 
 class GraphNode:
 	def __init__(self, label):
@@ -75,4 +76,27 @@ class Graph:
 	def both_labels_valid(self, from_label, to_label):
 		if not self.nodes.get(from_label) or not self.nodes.get(to_label):
 			raise LookupError("these node labels do not exist!")
+	
+	def depth_first_traversal(self, v_label):
+
+		v_node = self.nodes[v_label]
+		
+		visited = OrderedDict()
+
+		self.dft_helper(v_node, visited)
+		
+		for v in visited:
+			print(v)
+	
+	def dft_helper(self, v, visited):
+
+		if v in visited:
+			return
+		
+		visited[v.label] = True
+
+		for w in self.adjacency[v.label]:
+			self.dft_helper(w, visited)
+
+
 
