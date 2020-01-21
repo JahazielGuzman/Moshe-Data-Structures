@@ -79,6 +79,9 @@ class Graph:
 	
 	def depth_first_traversal(self, v_label):
 
+		if not self.nodes.get(v_label):
+			return
+		
 		v_node = self.nodes[v_label]
 		
 		visited = OrderedDict()
@@ -97,6 +100,61 @@ class Graph:
 
 		for w in self.adjacency[v.label]:
 			self.dft_helper(w, visited)
+	
+	def depth_first_iterative(self, start_label):
+
+		if not self.nodes.get(start_label):
+			return
+
+		start_node = self.nodes[start_label]
+		s = deque()
+		visited = set()
+
+		s.append(start_node)
+
+		while (len(s)):
+
+			current = s.pop()
+
+			if current in visited:
+				continue
+
+			print(current)
+			visited.add(current)
+
+			for neighbor in self.adjacency[current.label]:
+				if neighbor not in visited:
+					s.append(neighbor)
+	
+	def breadth_first_traversal(self, start_label):
+
+		if not self.nodes.get(start_label):
+			return
+		
+		start_node = self.nodes[start_label]
+
+		Q = deque()
+		visited = set()
+
+		Q.append(start_node)
+
+		while len(Q):
+
+			current = Q.popleft()
+
+			if current in visited:
+				continue
+			
+			visited.add(current)
+			print(current)
+
+			for neighbor in self.adjacency[current.label]:
+				if neighbor not in visited:
+					Q.append(neighbor)
+
+
+
+
 
 
 

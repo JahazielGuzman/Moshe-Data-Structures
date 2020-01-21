@@ -52,6 +52,14 @@ G.add_edge("D", "E")
 print("Graph G ready for traversa\n", G)
 
 G.depth_first_traversal("C")
+print("\n")
+G.depth_first_traversal("A")
+print("\n")
+G.depth_first_traversal("G")
+print("\n Now iterative: \n")
+G.depth_first_iterative("C")
+print("\n Now breadth first: \n")
+G.breadth_first_traversal("C")
 
 
 
