@@ -43,10 +43,9 @@ class Graph:
 
 		self.adjacency.pop(label)
 
-		for node in self.adjacency:
-			
-			graph_node = self.nodes[label]
+		graph_node = self.nodes[label]
 
+		for node in self.adjacency:	
 			if graph_node in self.adjacency[node]:
 				self.adjacency[node].remove(graph_node)
 
@@ -93,7 +92,7 @@ class Graph:
 	
 	def dft_helper(self, v, visited):
 
-		if v in visited:
+		if v.label in visited:
 			return
 		
 		visited[v.label] = True
@@ -101,6 +100,38 @@ class Graph:
 		for w in self.adjacency[v.label]:
 			self.dft_helper(w, visited)
 	
+	def topological_sort(self):
+
+		S = deque()
+		visited = OrderedDict()
+
+		# Do a DFS from each node in the graph
+		for node_label in self.nodes:
+
+			graph_node = self.nodes[node_label]
+			self.dft_topo(graph_node, visited, S)
+		
+		l = []
+
+		while len(S):
+			l.append(S.pop())
+		
+		return l
+
+	# dft for topological sort
+	def dft_topo(self, v, visited, stack):
+
+		if v.label in visited:
+			return
+		
+		visited[v.label] = True
+
+		for w in self.adjacency[v.label]:
+			self.dft_topo(w, visited, stack)
+		
+		stack.append(v.label)
+
+
 	def depth_first_iterative(self, start_label):
 
 		if not self.nodes.get(start_label):
@@ -151,10 +182,4 @@ class Graph:
 			for neighbor in self.adjacency[current.label]:
 				if neighbor not in visited:
 					Q.append(neighbor)
-
-
-
-
-
-
-
+	

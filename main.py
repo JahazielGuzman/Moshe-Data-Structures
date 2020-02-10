@@ -61,5 +61,19 @@ G.depth_first_iterative("C")
 print("\n Now breadth first: \n")
 G.breadth_first_traversal("C")
 
+# Now create a Directed, Acyclic Graph
+dag = Graph()
 
+dag.add_node("X")
+dag.add_node("A")
+dag.add_node("B")
+dag.add_node("P")
+dag.add_edge("X","A")
+dag.add_edge("X","B")
+dag.add_edge("A", "P")
+dag.add_edge("B", "P")
 
+print("directed acyclic graph:", dag)
+print("topological sort:")
+
+print(dag.topological_sort())
